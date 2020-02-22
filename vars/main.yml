@@ -1,4 +1,4 @@
 ---
-velero_pkg: "ssllabs-scan-\{\{ ssllabs-scan_version \}\}-linux-amd64"
+velero_pkg: "ssllabs-scan-" {{.Repo}}_version "-linux-amd64"
 velero_bin: /usr/local/bin/ssllabs-scan
 velero_url: "https://github.com/ssllabs/ssllabs-scan/releases/download/v1.2.0/velero-v1.2.0-linux-amd64.tar.gz"  # yamllint disable-line rule:line-length
