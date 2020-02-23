@@ -1,33 +1,33 @@
 ---
 - name: version
-  command: velero version --client-only
-  register: velero_installed_version
+  command: ssllabs-scan -version
+  register: ssllabs-scan_installed_version
   changed_when: false
   failed_when: false
 
 - block:
     - name: download
       get_url:
-        url: "{{ velero_url }}"
+        url: "{{ ssllabs-scan_url }}"
         dest: /tmp
-        checksum: "{{ velero_checksum }}"
+        checksum: "{{ ssllabs-scan_checksum }}"
 
     - block:
         - name: unarchive
           unarchive:
-            src: "/tmp/{{ velero_pkg_ext }}"
+            src: "/tmp/{{ ssllabs-scan_pkg_ext }}"
             dest: /tmp
             remote_src: true
-            creates: "{{ velero_bin }}"
+            creates: "{{ ssllabs-scan_bin }}"
         - name: executable bin for every user
           copy:
-            src: "/tmp/{{ velero_pkg_bin }}"
-            dest: "{{ velero_bin }}"
+            src: "/tmp/{{ ssllabs-scan_pkg_bin }}"
+            dest: "{{ ssllabs-scan_bin }}"
             remote_src: true
             owner: root
             group: root
             mode: '0755'
       become: true
   when: >
-    velero_installed_version.stdout is not defined
-    or velero_version not in velero_installed_version.stdout
+    ssllabs-scan_installed_version.stdout is not defined
+    or ssllabs-scan_version not in ssllabs-scan_installed_version.stdout
