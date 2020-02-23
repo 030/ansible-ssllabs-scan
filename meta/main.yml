@@ -23,9 +23,4 @@ galaxy_info:
         - xenial
         - bionic
   galaxy_tags:
-    - ssllabs-scan
-    - openshift
-    - kubectl
-    - oc
-    - kubernetes
-    - backup
+    - [ssllabs scan]
