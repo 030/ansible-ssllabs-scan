@@ -15,14 +15,14 @@
     - block:
         - name: unarchive
           unarchive:
-            src: "/tmp/{{ ssllabs_scan_pkg_ext }}"
+            src: "/tmp/{{ ssllabs_scan_pkg }}"
             dest: /tmp
             remote_src: true
             creates: "{{ ssllabs_scan_bin }}"
         - name: executable bin for every user
           copy:
-            src: "/tmp/{{ ssllabs_scan_pkg_bin }}"
-            dest: "{{ ssllabs_scan_bin }}"
+            src: "/tmp/{{ ssllabs_scan_pkg }}"
+            dest: "/usr/local/bin/{{ ssllabs_scan_bin }}"
             remote_src: true
             owner: root
             group: root
