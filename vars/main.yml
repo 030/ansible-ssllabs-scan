@@ -1,4 +1,4 @@
 ---
-ssllabs-scan_pkg: "ssllabs-scan_{{ ssllabs-scan_version }}-linux64"
-ssllabs-scan_bin: /usr/local/bin/ssllabs-scan
-ssllabs-scan_url: "https://github.com/ssllabs/ssllabs-scan/releases/download/{{ ssllabs-scan_version }}/{{ ssllabs-scan_pkg }}.tgz"  # yamllint disable-line rule:line-length
+ssllabs_scan_pkg: "ssllabs-scan_{{ ssllabs_scan_version }}-linux64"
+ssllabs_scan_bin: /usr/local/bin/ssllabs_scan
+ssllabs_scan_url: "https://github.com/ssllabs/ssllabs-scan/releases/download/{{ ssllabs_scan_version }}/{{ ssllabs_scan_pkg }}.tgz"  # yamllint disable-line rule:line-length

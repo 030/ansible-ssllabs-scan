@@ -1,33 +1,33 @@
 ---
 - name: version
   command: ssllabs-scan -version
-  register: ssllabs-scan_installed_version
+  register: ssllabs_scan_installed_version
   changed_when: false
   failed_when: false
 
 - block:
     - name: download
       get_url:
-        url: "{{ ssllabs-scan_url }}"
+        url: "{{ ssllabs_scan_url }}"
         dest: /tmp
-        checksum: "{{ ssllabs-scan_checksum }}"
+        checksum: "{{ ssllabs_scan_checksum }}"
 
     - block:
         - name: unarchive
           unarchive:
-            src: "/tmp/{{ ssllabs-scan_pkg_ext }}"
+            src: "/tmp/{{ ssllabs_scan_pkg_ext }}"
             dest: /tmp
             remote_src: true
-            creates: "{{ ssllabs-scan_bin }}"
+            creates: "{{ ssllabs_scan_bin }}"
         - name: executable bin for every user
           copy:
-            src: "/tmp/{{ ssllabs-scan_pkg_bin }}"
-            dest: "{{ ssllabs-scan_bin }}"
+            src: "/tmp/{{ ssllabs_scan_pkg_bin }}"
+            dest: "{{ ssllabs_scan_bin }}"
             remote_src: true
             owner: root
             group: root
             mode: '0755'
       become: true
   when: >
-    ssllabs-scan_installed_version.stdout is not defined
-    or ssllabs-scan_version not in ssllabs-scan_installed_version.stdout
+    ssllabs_scan_installed_version.stdout is not defined
+    or ssllabs_scan_version not in ssllabs_scan_installed_version.stdout
