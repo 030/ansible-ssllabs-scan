@@ -21,7 +21,7 @@
             creates: "{{ ssllabs_scan_bin }}"
         - name: executable bin for every user
           copy:
-            src: "/tmp/{{ ssllabs_scan_pkg }}"
+            src: "/tmp/{{ ssllabs_scan_bin }}"
             dest: "/usr/local/bin/{{ ssllabs_scan_bin }}"
             remote_src: true
             owner: root
